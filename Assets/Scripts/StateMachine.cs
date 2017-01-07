@@ -1,4 +1,8 @@
-﻿using UnityEngine;
+﻿/* The following is an example of a lightweight state machine (explained more in the tutorial videos).
+ * It is not recommended for implementing Link, but it may be useful for enemies.
+ */ 
+
+using UnityEngine;
 
 // State Machines are responsible for processing states, notifying them when they're about to begin or conclude, etc.
 public class StateMachine
