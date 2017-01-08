@@ -79,7 +79,6 @@ public class EECS494FunBallAesthetics : MonoBehaviour {
         {
             mat.color = Color.red;
             transform.localScale = Vector3.one * 1.5f;
-            player_hit = true;
             ScreenShakeEffect.Shake(15, 0.05f, 5);
         }    
     }
