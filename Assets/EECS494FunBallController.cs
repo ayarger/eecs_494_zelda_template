@@ -1,10 +1,25 @@
-﻿using System.Collections;
+﻿/* A component that implements the behavior of the 494 FunBall */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class EECS494FunBallController : MonoBehaviour {
 
+    // Function objects take the form of "delegates" in C#.
+    // Should you wish to avoid the inconvenience of declaring a new
+    // delegate data-type (as done in the line below), you can use an Action,
+    // which is essentially a lambda.
+    /* Action examples:
+     * // Be sure to add "using System;" to your includes.
+     * Action print_lambda = () => { print("Hello Action!"); };
+     * Action<bool> a = (bool b) => { print("the bool's value is: " + b.ToString()); };
+     */
+
     public delegate void VoidFunctionCollisionParam(Collision coll);
+
+    // A list that contains all the listeners waiting for a collision event.
     public List<VoidFunctionCollisionParam> collision_callbacks = new List<VoidFunctionCollisionParam>();
 
     // Use this for initialization

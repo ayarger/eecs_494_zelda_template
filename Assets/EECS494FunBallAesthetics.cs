@@ -9,7 +9,7 @@
  * For example, the 494FunBall appears to get temporarily larger when the player touches it.
  * If the actual object ACTUALLY got larger, then its colliders would too, causing the player
  * and ball to overlap, resulting in physics glitches and oddities.
- * In our current setup, the 494FunBall never actually resizes, but the object representing it
+ * To prevent this, In our current setup, the 494FunBall never actually resizes, but the object representing it
  * visually (FunBallAesthetic) DOES get larger. This aesthetic has no colliders, and doesn't 
  * effect gameplay in any way. Thus we have decoupled the game from its visuals in a manner
  * akin to the MVC pattern.
@@ -75,7 +75,7 @@ public class EECS494FunBallAesthetics : MonoBehaviour {
 
     void CollisionCallback(Collision coll)
     {
-        if (coll.gameObject.tag == "Player")
+        if (coll.relativeVelocity.magnitude > 3.0f)
         {
             mat.color = Color.red;
             transform.localScale = Vector3.one * 1.5f;
