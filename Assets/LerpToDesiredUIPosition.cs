@@ -28,6 +28,10 @@ public class LerpToDesiredUIPosition : MonoBehaviour
         if (hidden)
             desired_ui_position = new Vector2(-272, 0);
 
+        // By jumping a particular fraction (ease_factor) of the way to our destination
+        // every frame, we re-enact Zeno's Dichotomy paradox (https://youtu.be/EfqVnj-sgcc), 
+        // achieving smooth movement.
+        // - AY
         rt.anchoredPosition += 
             (desired_ui_position - rt.anchoredPosition) * ease_factor;
     }

@@ -1,3 +1,5 @@
+/* A component that encapsulates tile-related data and behavior */
+
 using UnityEngine;
 using System.Collections;
 
@@ -42,7 +44,7 @@ public class Tile : MonoBehaviour {
 
         sprend.sprite = spriteArray[tileNum];
 
-        if (ShowMapOnCamera.S != null) SetCollider();
+        if (ShowMapOnCamera.S != null) Customize();
         //TODO: Add something for destructibility - JB
 
         gameObject.SetActive(true);
@@ -57,10 +59,20 @@ public class Tile : MonoBehaviour {
         }
     }
 
-    // Arrange the collider for this tile
-    void SetCollider() {
+    /* Customize this tile based on the contents of Collision.txt
+     * 
+     * The function below uses a switch statement to decide whether a given tile
+     * requires a box collider. It decides this by looking into the Collision.txt text file
+     * for the code that corresponds to this tile. If the code is "S", it stands for solid, and
+     * this tile received a collider.
+     * 
+     * Study this function, and consider adding more cases to allow for more advanced customization
+     * of tiles.
+     * 
+     * - AY
+     */
+    void Customize() {
         
-        // Collider info from collisionData
         bc.enabled = true;
         char c = ShowMapOnCamera.S.collisionS[tileNum];
         switch (c) {

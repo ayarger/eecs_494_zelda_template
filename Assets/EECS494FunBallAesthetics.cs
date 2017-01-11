@@ -14,6 +14,8 @@
  * effect gameplay in any way. Thus we have decoupled the game from its visuals in a manner
  * akin to the MVC pattern.
  * https://www.wikiwand.com/en/Model%E2%80%93view%E2%80%93controller
+ * 
+ * - AY
  */
 
 using System.Collections;
@@ -33,6 +35,7 @@ public class EECS494FunBallAesthetics : MonoBehaviour {
     void Start () {
         // Register a callback, so this aesthetic object knows when the target
         // object collided with something.
+        // - AY
         if (target != null)
             target.collision_callbacks.Add(CollisionCallback);
         else
@@ -86,6 +89,7 @@ public class EECS494FunBallAesthetics : MonoBehaviour {
     void OnDestroy()
     {
         // Un-register our collision callback to prevent performance leaks.
+        // - AY
         target.collision_callbacks.Remove(CollisionCallback);
     }
 }

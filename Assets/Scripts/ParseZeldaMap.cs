@@ -1,4 +1,30 @@
 ﻿/* A component for parsing a Zelda map */
+
+/* A word on the generation of game maps
+ * 
+ * Once upon a time, EECS 494 students were required to assemble maps from classic games
+ * tile-by-tile, by hand. Clicking...dragging...clicking...dragging. What a waste of time.
+ * 
+ * Jeremy Bond sought to automate this process with this special script. This component
+ * consumes png images of maps (like the one in your project-- Resources/dungeon.png),
+ * and creates two essential things-- (1) A grid of codes representing map tiles (Resources/map_sprites_data.txt),
+ * and (2) a code-key of images assigning a tile image to each code in the map (Resources/map_tile_sprites.png).
+ * 
+ * With these two files, we can automate the process of reconstructing the background of an entire level by
+ * iterating through the grid text file, and applying the corresponding images from the code-key. 
+ * The ShowMapOnCamera component does this for you based on the position of the camera. 
+ * No more manual clicking and dragging!
+ * 
+ * But while this may make everything LOOK accurate, what if you need to add functionality to certain tiles?
+ * For instance, what if you need to designate certain tile types as "Solid", like walls and statues?
+ * For that, take a peak at the Tile.cs script, and the Resources/Collision.txt and Resources/Destructible.txt
+ * files.
+ * 
+ * It behooves you to spend some time studying this script, as you may need to customize it when you create
+ * your custom levels.
+ * - AY
+ */
+
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;

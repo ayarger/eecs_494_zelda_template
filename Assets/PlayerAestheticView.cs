@@ -1,4 +1,8 @@
 ﻿/* A component for controlling the visual representation of the player character */
+
+// For an explanation of why separation of aesthetics and behavior is important,
+// Read the commentary within EECS494FunBallAesthetics.cs
+// - AY
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,6 +21,7 @@ public class PlayerAestheticView : MonoBehaviour {
     void Update () {
         // The aesthetic object should always represent the location of the player object.
         // Thus, we must move to the location of the player object every frame.
+        // - AY
         transform.position = player_controller.transform.position;
 
         ProcessPlayerDirection();
